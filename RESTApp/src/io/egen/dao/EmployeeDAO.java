@@ -108,7 +108,8 @@ public class EmployeeDAO {
 		
 		return emp;
 	}
-
+	// Adding comment for testing purposes
+	// Adding comment for testing purposes
 	public Employee create (Employee emp) throws AppException {
 		Connection con = DBUtil.connect();
 		PreparedStatement ps = null;

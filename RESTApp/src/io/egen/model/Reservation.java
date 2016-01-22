@@ -8,6 +8,7 @@ public class Reservation
    private String date;
    private String time;
    
+   // comments
    
 public String getTime() {
 	return time;

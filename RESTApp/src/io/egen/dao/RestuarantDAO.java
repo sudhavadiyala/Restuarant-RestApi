@@ -41,7 +41,7 @@ public class RestuarantDAO
     	return tb;
     }
     
-    
+    // Adding comment for testing purposes
     public List<Table> findTables(String dt,String tm)
     {
     	
@@ -88,19 +88,16 @@ public class RestuarantDAO
     	ps.setString(4, rs.getDate());
     	ps.setString(5, rs.getTime());
     	int r  = ps.executeUpdate();
-    	
-    	   	
+    	  	
     	
     	if(r==1)
     	{
     		System.out.println("The execution is successfull");
     	}
     	
-    	
-    	
     	else
     	{
-    		System.out.println("the insert operation seem to have failed , please send the message to the Devloper");
+    		System.out.println("The insert operation seem to have failed ,please send the message to the Devloper");
     	}
     	
     	}

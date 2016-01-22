@@ -10,4 +10,6 @@ public class AppConfig extends ResourceConfig {
 	public AppConfig() {
 		packages("io.egen");
 	}
+	
+	// comments
 }
