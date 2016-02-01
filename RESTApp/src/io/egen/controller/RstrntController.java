@@ -2,12 +2,15 @@ package io.egen.controller;
 
 import java.util.List;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.DELETE;
 
 import io.egen.model.*;
 import io.egen.dao.*;
@@ -31,6 +34,16 @@ public class RstrntController
 		return tbls;
 	}
 	
+	@GET
+	@Path("/reservations")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Reservation> findAllReservation(@QueryParam("dt") String d,
+			@QueryParam("time") String tm)
+	{
+		List<Reservation> reservtns = new ArrayList<Reservation>();
+		
+		return reservtns;
+	}
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -54,6 +67,23 @@ public class RstrntController
 		}	
 	}
 	
+	
+	@DELETE
+	@Path("/{id}")
+	public Response delete(@PathParam("id") int id)
+	{
+		try{
+			RestuarantDAO r = new RestuarantDAO();
+			r.delete(id);
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		return Response.ok().build();
+	}
 	
 	
 	

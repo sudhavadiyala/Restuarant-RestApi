@@ -112,4 +112,56 @@ public class RestuarantDAO
     	
     	
     }
+    
+    public List<Reservation> reservations()
+    {
+    	List<Reservation> reservtns = new ArrayList<Reservation>();
+    	Connection con = DBUtil.connect();
+    	PreparedStatement ps = null;
+    	ResultSet rs = null;
+    	
+    	try{
+    		ps = con.prepareStatement("SELECT * FROM reservation");
+    		
+    		rs = ps.executeQuery();
+    		while(rs.next())
+    		{
+    			Reservation r = new Reservation();
+    			r.setTablenum(rs.getString(1));
+    			r.setDate(rs.getString(2));
+    			r.setEmailid(rs.getString(3));
+    			r.setTime(rs.getString(4));
+    			r.setMembers(rs.getInt(5));
+    			reservtns.add(r);
+    			
+    		}
+    	}
+    	
+    	catch(SQLException e)
+    	{
+    		System.out.println("SQLException is caught");
+    	}
+    	
+    	return reservtns;
+    }
+    
+    
+    public void delete(int deleteid)
+    {
+    	Connection con = null;
+    	PreparedStatement ps = null;
+    	
+    	con = DBUtil.connect();
+    	
+    	try{
+    		ps = con.prepareStatement("DELETE FROM reservation WHERE id='"+deleteid+"'");
+    		ps.executeQuery();
+    	}
+    	
+    	catch(Exception e)
+    	{
+    		e.printStackTrace();
+    		System.out.println("Exception has been caught");
+    	}
+    }
 }
