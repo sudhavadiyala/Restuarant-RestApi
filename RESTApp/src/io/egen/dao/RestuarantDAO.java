@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+// Data Access Layer
+
 public class RestuarantDAO 
 {
     public List<Table> findaTable() throws AppException

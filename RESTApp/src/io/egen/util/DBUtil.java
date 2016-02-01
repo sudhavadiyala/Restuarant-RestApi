@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+
+// comments for the DataUtil 
 public class DBUtil {
 
 	private static final String DB_URL = "jdbc:mysql://mis-sql.uhcl.edu/vadiyalas9388";
